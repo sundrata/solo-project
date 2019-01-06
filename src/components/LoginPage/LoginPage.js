@@ -82,7 +82,7 @@ class LoginPage extends Component {
             Register
           </button>
         </center>
-      </div>
+      </div> 
     );
   }
 }
