@@ -23,6 +23,7 @@ class App extends Component {
   componentDidMount () {
     this.props.dispatch({type: 'FETCH_USER'})
     this.props.dispatch({type: 'FETCH_FEATURES'})
+    this.props.dispatch({type: 'FETCH_MAINTENANCE'})
   }
 
   render() {
