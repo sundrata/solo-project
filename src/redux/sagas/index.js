@@ -3,8 +3,8 @@ import loginSaga from './loginSaga';
 import registrationSaga from './registrationSaga';
 import userSaga from './userSaga';
 import featuresSaga from './featuresSaga';
-import maintenanceSaga from './maintenanceSaga'
-
+import maintenanceSaga from './maintenanceSaga';
+import parksSaga from './parksSaga'
 // rootSaga is the primary saga.
 // It bundles up all of the other sagas so our project can use them.
 // This is imported in index.js as rootSaga
@@ -18,6 +18,7 @@ export default function* rootSaga() {
     registrationSaga(),
     userSaga(),
     featuresSaga(),
-    maintenanceSaga()
+    maintenanceSaga(),
+    parksSaga()
   ]);
 }

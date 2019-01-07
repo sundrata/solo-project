@@ -24,6 +24,7 @@ class App extends Component {
     this.props.dispatch({type: 'FETCH_USER'})
     this.props.dispatch({type: 'FETCH_FEATURES'})
     this.props.dispatch({type: 'FETCH_MAINTENANCE'})
+    this.props.dispatch({type: 'FETCH_PARKS'})
   }
 
   render() {
