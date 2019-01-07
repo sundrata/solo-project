@@ -1,22 +1,18 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
-import UserInfo from '../UserInfo/UserInfo';
+import LogOutButton from '../LogOutButton/LogOutButton';
 
 // this could also be written with destructuring parameters as:
 // const UserPage = ({ user }) => (
 // and then instead of `props.user.username` you could use `user.username`
-const UserPage = ({ user }) => (
-  <div>
-    <div>
-      <UserInfo />
+const UserInfo = ({ user }) => (
+    <div className="userInfo">
+      <h1 id="welcome">
+        {user.username}!
+    </h1>
+      {/* <p>Your ID is: {user.id}</p> */}
+      <LogOutButton className="log-in" />
     </div>
-    <div className="parkButtonsDiv">
-      <button className="parkButtons">Park #1</button><br></br>
-      <button className="parkButtons">Park #2</button><br></br>
-      <button className="parkButtons">Park #3</button><br></br>
-    </div>
-  </div>
 );
 
 // Instead of taking everything from state, we just want the user info.
@@ -27,4 +23,4 @@ const mapStateToProps = ({ user }) => (
 );
 
 // this allows us to use <App /> in index.js
-export default connect(mapStateToProps)(UserPage);
+export default connect(mapStateToProps)(UserInfo);

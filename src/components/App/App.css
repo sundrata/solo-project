@@ -8,6 +8,9 @@ body {
     margin: 50px;
 }
 
+.footer{
+    text-align: center;
+}
 form {
     background-color: #dbd5d5;
     width: 30%;
@@ -26,11 +29,13 @@ input {
   background-color: #00acb0;
   border-radius: 4px;
   color: #f8f8f8;
-  min-height: 50px;
-  min-width: 100px;
+  min-height: 30px;
+  min-width: 70px;
   outline:0;
   cursor: pointer;
+  margin: 0px 10px;
 }
+
 
 .log-in:hover, .log-out:hover, .register:hover {
   background-color: #008183;
@@ -46,4 +51,27 @@ input {
     outline:0;
     border-bottom:1px solid #444; 
     cursor: pointer;
+}
+
+.parkButtons{
+    background-color: #3db3e3;
+    border-radius: 4px;
+    color: #f8f8f8;
+    min-height: 120px;
+    min-width: 240px;
+    text-align: center;
+    margin: 10px auto;
+}
+
+.parkButtonsDiv{
+    text-align: center;
+  }
+
+.userInfo{
+    text-align: right;
+}
+
+#welcome{
+font-size: 20px;
+margin: 5px 10px auto 10px;
 }
