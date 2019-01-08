@@ -3,9 +3,35 @@ body {
     margin: 0px;
 }
 
+.adminDashButtons{
+    border-radius: 4px;
+    background-color: #3db3e3;
+    color: #ebdddd;
+    font-size: 20px;
+    height: 80px;
+    width: 160px;
+    outline:0;
+    cursor: pointer;
+    padding: 5px 10px;
+    margin: 5px 10px;
+}
+
+.adminNavLeft{
+    margin: 10px;
+}
+
+.adminNavBottom{
+    margin: 90px auto;
+    text-align: center;    
+}
+
 .alert {
     background-color: #ff4545;
     margin: 50px;
+}
+
+.archivesTable{
+margin: 10px auto;
 }
 
 .footer{
@@ -66,6 +92,12 @@ input {
 .parkButtonsDiv{
     text-align: center;
   }
+
+.parkTitle{
+    text-align: center;
+    padding: 0px;
+    margin: 10px auto;
+}
 
 .userInfo{
     text-align: right;

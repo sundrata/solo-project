@@ -12,9 +12,15 @@ const UserPage = ({ user }) => (
       <UserInfo />
     </div>
     <div className="parkButtonsDiv">
-      <button className="parkButtons">Park #1</button><br></br>
+      <Link to="/park1">
+        <button className="parkButtons">Park #1</button><br></br>
+      </Link>
+      <Link to="/park2">
       <button className="parkButtons">Park #2</button><br></br>
+      </Link>
+      <Link to="/park3">
       <button className="parkButtons">Park #3</button><br></br>
+      </Link>
     </div>
   </div>
 );

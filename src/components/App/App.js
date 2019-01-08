@@ -16,7 +16,11 @@ import ProtectedRoute from '../ProtectedRoute/ProtectedRoute'
 import AboutPage from '../AboutPage/AboutPage';
 import UserPage from '../UserPage/UserPage';
 import InfoPage from '../InfoPage/InfoPage';
-
+import ParkOneList from '../ParkOneList/ParkOneList';
+import AdminDashboard from '../AdminDashboard/AdminDashboard';
+import Archives from '../Archives/Archives';
+import ParkTwoList from '../ParkTwoList/ParkTwoList';
+import ParkThreeList from '../ParkThreeList/ParkThreeList';
 import './App.css';
 
 class App extends Component {
@@ -58,6 +62,35 @@ class App extends Component {
               path="/info"
               component={InfoPage}
             />
+            {/* route to park 1, only logged in users can access */}
+            <ProtectedRoute
+              exact
+              path="/park1"
+              component={ParkOneList}
+            />
+            {/* test */}
+            <ProtectedRoute
+              exact
+              path="/park2"
+              component={ParkTwoList}
+            />
+            <ProtectedRoute
+              exact
+              path="/park3"
+              component={ParkThreeList}
+            />
+            {/* admin dashboard only admin can see */}
+            <ProtectedRoute
+              exact
+              path="/adminDash"
+              component={AdminDashboard}
+              />
+              {/* admin archives */}
+              <ProtectedRoute
+                exact
+                path="/archives"
+                component={Archives}
+                />
             {/* If none of the other routes matched, we will show a 404. */}
             <Route render={() => <h1>404</h1>} />
           </Switch>
