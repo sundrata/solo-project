@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import {
   HashRouter as Router,
   Route,
@@ -6,7 +6,7 @@ import {
   Switch,
 } from 'react-router-dom';
 
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 
 import Nav from '../Nav/Nav';
 import Footer from '../Footer/Footer';
@@ -25,11 +25,12 @@ import ManageEmployees from '../ManageEmployees/ManageEmployees';
 import './App.css';
 
 class App extends Component {
-  componentDidMount () {
-    this.props.dispatch({type: 'FETCH_USER'})
-    this.props.dispatch({type: 'FETCH_FEATURES'})
-    this.props.dispatch({type: 'FETCH_MAINTENANCE'})
-    this.props.dispatch({type: 'FETCH_PARKS'})
+  componentDidMount() {
+    this.props.dispatch({ type: 'FETCH_USER' })
+    this.props.dispatch({ type: 'FETCH_FEATURES' })
+    this.props.dispatch({ type: 'FETCH_MAINTENANCE' })
+    this.props.dispatch({ type: 'FETCH_PARKS' })
+    this.props.dispatch({ type: 'FETCH_PERSON'})
   }
 
   render() {
@@ -85,26 +86,27 @@ class App extends Component {
               exact
               path="/adminDash"
               component={AdminDashboard}
-              />
-              {/* admin archives */}
-              <ProtectedRoute
-                exact
-                path="/archives"
-                component={Archives}
-                />
-                {/* manage employees */}
-                <ProtectedRoute
-                  exact
-                  path="/employees"
-                  component={ManageEmployees}
-                  />
+            />
+            {/* admin archives */}
+            <ProtectedRoute
+              exact
+              path="/archives"
+              component={Archives}
+            />
+            {/* manage employees */}
+            <ProtectedRoute
+              exact
+              path="/employees"
+              component={ManageEmployees}
+            />
             {/* If none of the other routes matched, we will show a 404. */}
             <Route render={() => <h1>404</h1>} />
           </Switch>
           <Footer />
         </div>
       </Router>
-  )}
+    )
+  }
 }
 
 export default connect()(App);

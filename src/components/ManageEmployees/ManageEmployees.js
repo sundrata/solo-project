@@ -4,22 +4,24 @@ import UserInfo from '../UserInfo/UserInfo';
 
 class ManageEmployees extends Component {
     render() {        
+        console.log('person', this.props.reduxStore.personReducer);
+       
         return (
             <div>
             <UserInfo />
                 <table className="archivesTable">
                     <thead>
                         <tr>
-                            <th>Username </th>
-                            <th>Admin?</th>
+                            <th>Employee </th>
+                            <th>Title</th>
                         </tr>
                     </thead>
                     <tbody>
-                        {this.props.reduxStore.personReducer.map((each) => {
+                        {this.props.reduxStore.personReducer.map((person) => {
                             return (
-                                <tr key={each.id}>
-                                    <td>{each.username}</td>
-                                    <td>{each.is_admin}</td>
+                                <tr key={person.id}>
+                                    <td>{person.username}</td>
+                                    <td>{person.is_admin ? 'admin' : 'employee'}</td> {/*Cool way to render booleans*/}
                                 </tr>
                             )
                         })}
