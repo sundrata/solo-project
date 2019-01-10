@@ -21,8 +21,8 @@ router.get('/', (req, res) => {
  */
 router.post('/', (req, res) => {
     const person = req.body;
-    const queryText = `INSERT INTO "person" ("username", "password", "is_admin") VALUES ($1, $2);`;
-    pool.query(queryText, [person.name, person.description])
+    const queryText = `INSERT INTO "person" ("username", "password", "is_admin") VALUES ($1, $2, $3);`;
+    pool.query(queryText, [person.username, person.password, person.is_admin])
     .then((result) => {
         console.log('result.rows:', result.rows);
         res.send(result.rows);
