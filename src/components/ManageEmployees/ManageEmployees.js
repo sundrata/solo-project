@@ -1,28 +1,25 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-// import { Link } from 'react-router-dom';
 import UserInfo from '../UserInfo/UserInfo';
 
-class Archives extends Component {
-    render() {
+class ManageEmployees extends Component {
+    render() {        
         return (
             <div>
             <UserInfo />
                 <table className="archivesTable">
                     <thead>
                         <tr>
-                            <th>Feature Name</th>
-                            <th>Who Maintained</th>
-                            <th>When</th>
+                            <th>Username </th>
+                            <th>Admin?</th>
                         </tr>
                     </thead>
                     <tbody>
-                        {this.props.reduxStore.maintenanceReducer.map((each) => {
+                        {this.props.reduxStore.personReducer.map((each) => {
                             return (
                                 <tr key={each.id}>
-                                    <td>{each.feature_name}</td>
-                                    <td>{each.who_maintained}</td>
-                                    <td>{each.timestamp}</td>
+                                    <td>{each.username}</td>
+                                    <td>{each.is_admin}</td>
                                 </tr>
                             )
                         })}
@@ -33,9 +30,10 @@ class Archives extends Component {
     }
 }
 
+// Instead of taking everything from state, we just want the shelf info.
 const mapStateToProps = reduxStore => ({
     reduxStore,
 });
 
 // this allows us to use <App /> in index.js
-export default connect(mapStateToProps)(Archives);
+export default connect(mapStateToProps)(ManageEmployees);

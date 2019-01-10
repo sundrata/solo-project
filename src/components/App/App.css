@@ -5,8 +5,8 @@ body {
 
 .adminDashButtons{
     border-radius: 4px;
-    background-color: #3db3e3;
-    color: #ebdddd;
+    background-color: #8497f6;
+    color: white;
     font-size: 20px;
     height: 80px;
     width: 160px;
@@ -38,7 +38,7 @@ margin: 10px auto;
     text-align: center;
 }
 form {
-    background-color: #dbd5d5;
+    background-color: #92b5ff;
     width: 30%;
     height: 250px;
     margin: 20px auto;
@@ -52,7 +52,7 @@ input {
 }
 
 .log-in, .log-out, .register {
-  background-color: #00acb0;
+  background-color: #7543a9;
   border-radius: 4px;
   color: #f8f8f8;
   min-height: 30px;
@@ -80,7 +80,7 @@ input {
 }
 
 .parkButtons{
-    background-color: #3db3e3;
+    background-color: #8497f6;
     border-radius: 4px;
     color: #f8f8f8;
     min-height: 120px;

@@ -13,7 +13,9 @@ class AdminDashboard extends Component {
             <Link to="/archives">
             <button className="adminDashButtons">Archives</button><br></br>
             </Link>
+            <Link to ="/employees">
             <button className="adminDashButtons">Manage Employees</button>
+            </Link>
             </div>
             <div className = "adminNavBottom">
             <button className="adminDashButtons">Park 1</button>

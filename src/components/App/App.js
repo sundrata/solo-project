@@ -21,6 +21,7 @@ import AdminDashboard from '../AdminDashboard/AdminDashboard';
 import Archives from '../Archives/Archives';
 import ParkTwoList from '../ParkTwoList/ParkTwoList';
 import ParkThreeList from '../ParkThreeList/ParkThreeList';
+import ManageEmployees from '../ManageEmployees/ManageEmployees';
 import './App.css';
 
 class App extends Component {
@@ -91,6 +92,12 @@ class App extends Component {
                 path="/archives"
                 component={Archives}
                 />
+                {/* manage employees */}
+                <ProtectedRoute
+                  exact
+                  path="/employees"
+                  component={ManageEmployees}
+                  />
             {/* If none of the other routes matched, we will show a 404. */}
             <Route render={() => <h1>404</h1>} />
           </Switch>
