@@ -3,12 +3,32 @@ import { connect } from 'react-redux';
 import UserInfo from '../UserInfo/UserInfo';
 
 class ManageEmployees extends Component {
-    render() {        
+    render() {
         console.log('person', this.props.reduxStore.personReducer);
-       
+
         return (
             <div>
-            <UserInfo />
+                <UserInfo />
+                
+                <form>
+                    <label>
+                        Username:
+                        <input type="text" name="username" />
+                    </label>
+                    <label>
+                        Password:
+                        <input type="text" name="password" />
+                    </label>
+                    <label>
+                        Title:
+                        <select>
+                            <option>Employee</option>
+                            <option>Admin</option>
+                        </select><br></br>
+                    </label>
+                    <input type="submit" value="Submit" />
+                </form>
+
                 <table className="archivesTable">
                     <thead>
                         <tr>
@@ -19,9 +39,10 @@ class ManageEmployees extends Component {
                     <tbody>
                         {this.props.reduxStore.personReducer.map((person) => {
                             return (
+                                //cool way to render booleans
                                 <tr key={person.id}>
                                     <td>{person.username}</td>
-                                    <td>{person.is_admin ? 'admin' : 'employee'}</td> {/*Cool way to render booleans*/}
+                                    <td>{person.is_admin ? 'admin' : 'employee'}</td>
                                 </tr>
                             )
                         })}

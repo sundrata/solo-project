@@ -20,6 +20,16 @@ router.get('/', (req, res) => {
  * POST route template
  */
 router.post('/', (req, res) => {
+    const person = req.body;
+    const queryText = `INSERT INTO "person" ("username", "password", "is_admin") VALUES ($1, $2);`;
+    pool.query(queryText, [person.name, person.description])
+    .then((result) => {
+        console.log('result.rows:', result.rows);
+        res.send(result.rows);
+    }).catch((error) => {
+        console.log(error);
+        res.sendStatus(500);
+    })
 });
 
 module.exports = router;
