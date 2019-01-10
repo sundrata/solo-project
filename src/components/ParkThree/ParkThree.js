@@ -6,8 +6,11 @@ class ParkThree extends Component {
         console.log('hit parkThree');
         if (this.props.in_park === 3) {
             return (
-                <div>
+                <div className="parkItem">
+                    <hr></hr>
                     <p>{this.props.feature_name}</p>
+                    <img className="featureImg" src={this.props.feature_image} />
+                    <span>{this.props.who_maintained}</span>
                 </div>
             )
         } else {

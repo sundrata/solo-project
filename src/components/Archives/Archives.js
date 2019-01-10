@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 // import { Link } from 'react-router-dom';
 import UserInfo from '../UserInfo/UserInfo';
+import moment from 'moment';
 
 class Archives extends Component {
     render() {
@@ -22,7 +23,7 @@ class Archives extends Component {
                                 <tr key={each.id}>
                                     <td>{each.feature_name}</td>
                                     <td>{each.who_maintained}</td>
-                                    <td>{each.timestamp}</td>
+                                    <td>{moment(each.timestamp).format("MMM Do, YYYY")}</td>
                                 </tr>
                             )
                         })}

@@ -21,6 +21,7 @@ class ParkOneList extends Component {
                         key={each.id}
                         id={each.id} //this is NEEDED for delete
                         feature_name={each.feature_name}
+                        feature_image={each.feature_image}
                         who_maintained={each.who_maintained}
                         was_maintained={each.was_maintained}
                         timestamp={each.timestamp}

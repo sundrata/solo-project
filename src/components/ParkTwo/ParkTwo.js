@@ -6,8 +6,11 @@ class ParkTwo extends Component {
         console.log('hit mItem')
         if (this.props.in_park === 2) {
             return (
-                <div>
+                <div className="parkItem">
+                    <hr></hr>
                     <p>{this.props.feature_name}</p>
+                    <img className="featureImg" src={this.props.feature_image} />
+                    <span>{this.props.who_maintained}</span>
                 </div>
             )
         } else {

@@ -34,6 +34,10 @@ body {
 margin: 10px auto;
 }
 
+.featureImg{
+    max-width: 200px;
+    max-height: 200px;
+}
 .footer{
     text-align: center;
 }
@@ -93,6 +97,10 @@ input {
     text-align: center;
   }
 
+.parkItem{
+    background-color: #c6e7fa;
+    margin: 10px 20px;
+}
 .parkTitle{
     text-align: center;
     padding: 0px;

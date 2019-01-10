@@ -34,11 +34,11 @@ class ManageEmployees extends Component {
                 <form>
                     <label>
                         Username:
-                        <input id="username"type="text" name="username" onChange={this.handleUsername} value={this.state.username} /><br></br>
+                        <input id="newEmployeeUsername" type="text" name="username" onChange={this.handleUsername} value={this.state.username} /><br></br>
                     </label>
                     <label>
                         Password:
-                        <input id="password"type="password" name="password" onChange={this.handlePassword} value={this.state.password} /><br></br>
+                        <input autoComplete="new-password" id="newEmployeePassword" type="password" name="password" onChange={this.handlePassword} value={this.state.password} /><br></br>
                     </label>
                     <label>
                         Title:
