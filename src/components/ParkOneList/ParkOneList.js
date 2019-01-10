@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import ParkOne from '../ParkOne/ParkOne'
+import ParkOne from '../ParkOne/ParkOne';
+import UserInfo from '../UserInfo/UserInfo';
 
 class ParkOneList extends Component {
     componentDidMount() {
@@ -14,6 +15,7 @@ class ParkOneList extends Component {
     render() {
         return (
             <div>
+                <UserInfo />
                 {/* Render each item from the shelf reducer */}
                 <h1 className="parkTitle">Park One</h1>
                 {this.props.reduxStore.maintenanceReducer.map((each) => {
@@ -27,6 +29,7 @@ class ParkOneList extends Component {
                         timestamp={each.timestamp}
                         in_park={each.in_park} /> )
                 })}
+                <button className="submit">Submit</button>
             </div>
         )
     }

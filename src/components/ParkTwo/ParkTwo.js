@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import moment from 'moment';
 
 class ParkTwo extends Component {
     render() {
@@ -8,9 +9,14 @@ class ParkTwo extends Component {
             return (
                 <div className="parkItem">
                     <hr></hr>
-                    <p>{this.props.feature_name}</p>
-                    <img className="featureImg" src={this.props.feature_image} />
-                    <span>{this.props.who_maintained}</span>
+                    <p className="featureName">{this.props.feature_name}</p>
+                    <img alt="feature" className="featureImg" src={this.props.feature_image} />
+                    <div className="checker">
+                        <input className="featureItemMaintained" type="checkbox" />
+                        <span>Maintained?</span>
+                        <p className="lastMaintained">Last Maintained: <span>{moment(this.props.timestamp).format('MMMM Do YYYY, h:mm:ss a')}</span> <span>({moment(this.props.timestamp).startOf('day').fromNow()})</span></p>
+                    </div>
+                    <hr></hr>
                 </div>
             )
         } else {

@@ -34,9 +34,22 @@ body {
 margin: 10px auto;
 }
 
+
+
+.checker{
+    display: inline;
+}
+
+.featureItemMaintained{
+    display: flex;
+}
 .featureImg{
-    max-width: 200px;
-    max-height: 200px;
+    max-width: 100px;
+    max-height: 100px;
+}
+
+.featureName{
+    margin: 5px;
 }
 .footer{
     text-align: center;
@@ -55,6 +68,18 @@ input {
     margin-bottom: 10px;
 }
 
+input[type="checkbox"]{
+    width: 30px; /*Desired width*/
+    height: 30px; /*Desired height*/
+    cursor: pointer;
+    display: inline;
+  }
+
+.lastMaintained{
+    font-size: 10px;
+    opacity: 0.6;
+}
+
 .log-in, .log-out, .register {
   background-color: #7543a9;
   border-radius: 4px;
@@ -63,7 +88,19 @@ input {
   min-width: 70px;
   outline:0;
   cursor: pointer;
-  margin: 0px 10px;
+  margin: 0px 15px;
+}
+
+.submit{
+    background-color: #7543a9;
+  border-radius: 4px;
+  color: #f8f8f8;
+  min-height: 30px;
+  min-width: 70px;
+  outline:0;
+  cursor: pointer;
+  margin: 0px auto;
+  display: flex;
 }
 
 

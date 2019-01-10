@@ -7,22 +7,28 @@ class AdminDashboard extends Component {
     render() {
 
         return (
-        <div>
-            <UserInfo />
-            <div className = "adminNavLeft">
-            <Link to="/archives">
-            <button className="adminDashButtons">Archives</button><br></br>
-            </Link>
-            <Link to ="/employees">
-            <button className="adminDashButtons">Manage Employees</button>
-            </Link>
+            <div>
+                <UserInfo />
+                <div className="adminNavLeft">
+                    <Link to="/archives">
+                        <button className="adminDashButtons">Archives</button><br></br>
+                    </Link>
+                    <Link to="/employees">
+                        <button className="adminDashButtons">Manage Employees</button>
+                    </Link>
+                </div>
+                <div className="adminNavBottom">
+                    <Link to="/park1">
+                        <button className="adminDashButtons">Park #1</button>
+                    </Link>
+                    <Link to="/park2">
+                        <button className="adminDashButtons">Park #2</button>
+                    </Link>
+                    <Link to="/park3">
+                        <button className="adminDashButtons">Park #3</button>
+                    </Link>
+                </div>
             </div>
-            <div className = "adminNavBottom">
-            <button className="adminDashButtons">Park 1</button>
-            <button className="adminDashButtons">Park 2</button>
-            <button className="adminDashButtons">Park 3</button>
-            </div>
-        </div>
         )
     }
 }
