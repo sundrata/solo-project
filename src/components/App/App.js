@@ -11,7 +11,8 @@ import { connect } from 'react-redux';
 import Nav from '../Nav/Nav';
 import Footer from '../Footer/Footer';
 
-import ProtectedRoute from '../ProtectedRoute/ProtectedRoute'
+import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
+import AdminRoute from '../AdminRoute/AdminRoute';
 
 import AboutPage from '../AboutPage/AboutPage';
 import UserPage from '../UserPage/UserPage';
@@ -82,19 +83,19 @@ class App extends Component {
               component={ParkThreeList}
             />
             {/* admin dashboard only admin can see */}
-            <ProtectedRoute
+            <AdminRoute
               exact
               path="/adminDash"
               component={AdminDashboard}
             />
             {/* admin archives */}
-            <ProtectedRoute
+            <AdminRoute
               exact
               path="/archives"
               component={Archives}
             />
             {/* manage employees */}
-            <ProtectedRoute
+            <AdminRoute
               exact
               path="/employees"
               component={ManageEmployees}
