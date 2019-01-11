@@ -3,6 +3,10 @@ body {
     margin: 0px;
 }
 
+.addEmpDialog{
+    margin: 5px auto;
+    text-align: center;
+}
 .adminDashButtons{
     border-radius: 4px;
     background-color: #8497f6;
@@ -86,7 +90,7 @@ input[type="checkbox"]{
   color: #f8f8f8;
   min-height: 30px;
   min-width: 70px;
-  outline:0;
+  outline: 0;
   cursor: pointer;
   margin: 0px 15px;
 }

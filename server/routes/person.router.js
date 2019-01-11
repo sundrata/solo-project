@@ -35,5 +35,17 @@ router.post('/', (req, res) => {
         res.sendStatus(500);
     })
 });
-
+//  delete route
+router.delete('/:id', (req, res) => {
+    const id = req.params.id;
+    const queryText = 'DELETE FROM "person" WHERE id = $1;';
+    pool.query(queryText, [id])
+    .then(result => {
+        res.sendStatus(202);
+    })
+    .catch(error => {
+        console.log('error in delete', error);
+        res.sendStatus(500);
+    })
+})
 module.exports = router;
