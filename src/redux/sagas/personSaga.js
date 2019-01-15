@@ -39,11 +39,20 @@ function* deletePerson(action) {
     }
 } 
 
+function* updatePerson(action) {
+    try{
+        yield call(axios.put, `/api/person/${action.payload}`);
+        yield put({type: 'FETCH_PERSON'});
+    } catch(error){
+        console.log(error);
+    }
+}
+
 function* personSaga() {
     yield takeEvery('FETCH_PERSON', fetchPerson);
     yield takeEvery('POST_PERSON', postPerson);
     yield takeEvery('DELETE_PERSON', deletePerson);
-
+    yield takeEvery('UPDATE_PERSON', updatePerson);
 }
 
 export default personSaga;

@@ -24,7 +24,6 @@ router.get('/', (req, res) => {
 router.post('/', (req, res) => {
     const person = req.body;
     const password = encryptLib.encryptPassword(req.body.password);
-
     const queryText = `INSERT INTO "person" ("username", "password", "is_admin") VALUES ($1, $2, $3);`;
     pool.query(queryText, [person.username, password, person.is_admin])
     .then((result) => {
@@ -46,6 +45,22 @@ router.delete('/:id', (req, res) => {
     .catch(error => {
         console.log('error in delete', error);
         res.sendStatus(500);
+    })
+})
+
+// PUT
+router.put('/:id', function(req, res){
+    let id = req.params.id;
+    const person = req.body; // This the data we sent
+    const query = `UPDATE "person" SET ("id", "username", "password", "is_admin")
+    VALUES ($1, $2, $3, $4) WHERE "id" = $1;`
+    pool.query(query, [person.id, person.username, person.password, person.is_admin])
+    .then((result)=>{
+        console.log(result);
+        res.sendStatus(201);
+    }).catch((err)=>{
+        console.log('hit query',err);
+        res.sendStatus( 500);
     })
 })
 module.exports = router;

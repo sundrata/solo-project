@@ -8,7 +8,6 @@ class AdminDashboard extends Component {
 
         return (
             <div>
-                <UserInfo />
                 <div className="adminNavLeft">
                     <Link to="/archives">
                         <button className="adminDashButtons">Archives</button><br></br>
@@ -18,7 +17,7 @@ class AdminDashboard extends Component {
                     </Link>
                 </div>
                 <div className="adminNavBottom">
-                    <Link to="/park1">
+                    <Link to="/adminOne">
                         <button className="adminDashButtons">Park #1</button>
                     </Link>
                     <Link to="/park2">

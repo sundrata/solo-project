@@ -4,6 +4,7 @@ import ParkOne from '../ParkOne/ParkOne';
 import UserInfo from '../UserInfo/UserInfo';
 
 class ParkOneList extends Component {
+    
     componentDidMount() {
         this.getMaint();
     }
@@ -11,17 +12,21 @@ class ParkOneList extends Component {
         console.log('hit get Maint');
         this.props.dispatch({ type: 'FETCH_MAINTENANCE' })
     }//end getMaint
+    
+    handleSubmit = () => {
+        this.props.dispatch({type: 'POST_MAINTENANCE', payload: this.state})
+    }
 
     render() {
+     
         return (
             <div>
-                <UserInfo />
                 {/* Render each item from the shelf reducer */}
                 <h1 className="parkTitle">Park One</h1>
                 {this.props.reduxStore.maintenanceReducer.map((each) => {
                     return ( <ParkOne
                         key={each.id}
-                        id={each.id} //this is NEEDED for delete
+                        feature_id={each.id} //this is NEEDED for delete
                         feature_name={each.feature_name}
                         feature_image={each.feature_image}
                         who_maintained={each.who_maintained}
@@ -29,7 +34,7 @@ class ParkOneList extends Component {
                         timestamp={each.timestamp}
                         in_park={each.in_park} /> )
                 })}
-                <button className="submit">Submit</button>
+                <button className="submit" onClick={this.handleSubmit}>Submit</button>
             </div>
         )
     }

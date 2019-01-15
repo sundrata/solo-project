@@ -17,6 +17,8 @@ class ManageEmployees extends Component {
         is_admin: false,
         open: false
     }
+
+    //new employee handlers
     handleUsername = (event) => {
         this.setState({
             username: event.target.value
@@ -32,6 +34,22 @@ class ManageEmployees extends Component {
             is_admin: event.target.value
         })
     }
+
+    //SAGA handlers
+    handleClick = () => {
+        this.props.dispatch({ type: 'POST_PERSON', payload: this.state })
+        this.setState({ open: false });
+
+    }
+    deletePerson = (person) => {
+        this.props.dispatch({ type: 'DELETE_PERSON', payload: person.id })
+    }
+
+    updatePerson = (person) => {
+        this.props.dispatch({ type: 'UPDATE_PERSON', payload: person.id })
+    }
+
+    //Material UI dialog handlers
     handleClickOpen = () => {
         this.setState({ open: true });
     };
@@ -39,41 +57,10 @@ class ManageEmployees extends Component {
     handleClose = () => {
         this.setState({ open: false });
     };
-
-    handleClick = () => {
-        this.props.dispatch({ type: 'POST_PERSON', payload: this.state })
-        this.setState({ open: false });
-
-    }
-
-    deletePerson = (person) => {       
-            this.props.dispatch({type: 'DELETE_PERSON', payload: person.id})      
-    }
-
     render() {
         console.log('person', this.props.reduxStore.personReducer);
         return (
             <div>
-                <UserInfo />
-                {/* <form>
-                    <label>
-                        Username:
-                        <input id="newEmployeeUsername" type="text" name="username" onChange={this.handleUsername} value={this.state.username} /><br></br>
-                    </label>
-                    <label>
-                        Password:
-                        <input autoComplete="new-password" id="newEmployeePassword" type="password" name="password" onChange={this.handlePassword} value={this.state.password} /><br></br>
-                    </label>
-                    <label>
-                        Title:
-                        <select id="title" onChange={this.handleTitle} value={this.state.is_admin}>
-                            <option value="false">Employee</option>
-                            <option value="true">Admin</option>
-                        </select><br></br>
-                    </label>
-                    <input type="submit" value="Submit" onClick={this.handleClick} />
-                </form> */}
-
                 <div className="addEmpDialog">
                     <Button variant="outlined" color="primary" onClick={this.handleClickOpen}>
                         Add New Employee
@@ -109,9 +96,9 @@ class ManageEmployees extends Component {
                                 fullWidth
                             />
                             <select id="title" onChange={this.handleTitle} value={this.state.is_admin}>
-                            <option value="false">Employee</option>
-                            <option value="true">Admin</option>
-                        </select>
+                                <option value="false">Employee</option>
+                                <option value="true">Admin</option>
+                            </select>
                         </DialogContent>
                         <DialogActions>
                             <Button onClick={this.handleClose} color="primary">
@@ -134,14 +121,64 @@ class ManageEmployees extends Component {
                     </thead>
                     <tbody>
                         {this.props.reduxStore.personReducer.map((person) => {
-                            return (
+                            if(person.is_admin){
+                                return (
                                 //cool way to render booleans
-                                <tr key={person.id}>
+                                <tr key={person.id}>                                
                                     <td>{person.username}</td>
                                     <td>{person.is_admin ? 'admin' : 'employee'}</td>
+                                    <td><div className="addEmpDialog">
+                                        <Button id={person.id} variant="outlined" color="primary" onClick={this.handleClickOpen}>
+                                            Edit                        
+                                        </Button>
+                                        <Dialog
+                                            open={this.state.open}
+                                            onClose={this.handleClose}
+                                            aria-labelledby="form-dialog-title"
+                                        >
+                                            <DialogTitle id="form-dialog-title">Edit Employee</DialogTitle>
+                                            <DialogContent>
+                                                <TextField
+                                                    autoFocus
+                                                    margin="dense"
+                                                    id={person.username}
+                                                    label="Username"
+                                                    type="text"
+                                                    onChange={this.handleUsername}
+                                                    value={this.state.username}
+                                                    fullWidth
+                                                />
+                                                <TextField
+                                                    autoFocus
+                                                    margin="dense"
+                                                    id={person.password}
+                                                    label="Password"
+                                                    type="password"
+                                                    onChange={this.handlePassword}
+                                                    value={this.state.password}
+                                                    fullWidth
+                                                />
+                                                <select id="title" onChange={this.handleTitle} value={this.state.is_admin}>
+                                                    <option value="false">Employee</option>
+                                                    <option value="true">Admin</option>
+                                                </select>
+                                            </DialogContent>
+                                            <DialogActions>
+                                                <Button onClick={this.handleClose} color="primary">
+                                                    Cancel
+                            </Button>
+                                                <Button onClick={() => this.updatePerson(person)} color="primary">
+                                                    Submit
+                            </Button>
+                                            </DialogActions>
+                                        </Dialog>
+                                        <hr width="35%"></hr>
+                                    </div></td>
+                                    
                                     <td><button onClick={() => this.deletePerson(person)}>Delete</button></td>
                                 </tr>
                             )
+                                }
                         })}
                     </tbody>
                 </table>

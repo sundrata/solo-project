@@ -24,6 +24,9 @@ import Archives from '../Archives/Archives';
 import ParkTwoList from '../ParkTwoList/ParkTwoList';
 import ParkThreeList from '../ParkThreeList/ParkThreeList';
 import ManageEmployees from '../ManageEmployees/ManageEmployees';
+import AdminOne from '../AdminOne/AdminOne';
+import UserInfo from '../UserInfo/UserInfo';
+
 import './App.css';
 
 class App extends Component {
@@ -40,6 +43,7 @@ class App extends Component {
       <Router>
         <div>
           <Nav />
+          <UserInfo />
           <Switch>
             {/* Visiting localhost:3000 will redirect to localhost:3000/home */}
             <Redirect exact from="/" to="/split" />
@@ -106,6 +110,11 @@ class App extends Component {
               path="/employees"
               component={ManageEmployees}
             />
+            <AdminRoute 
+              exact
+              path="/adminOne"
+              component={AdminOne}
+              />
             {/* If none of the other routes matched, we will show a 404. */}
             <Route render={() => <h1>404</h1>} />
           </Switch>

@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { put, takeEvery } from 'redux-saga/effects';
+import { put, call, takeEvery } from 'redux-saga/effects';
 
 // worker Saga: will be fired on "FETCH_MAINTENANCE" actions
 function* fetchMaintenance() {
@@ -25,9 +25,14 @@ function* fetchMaintenance() {
     }
 }
 
+function* postMaintenance(action) {
+    yield call(axios.post, '/api/maintenance', action.payload);
+    yield put({ type: 'FETCH_MAINTENANCE' });
+}
+
 function* maintenanceSaga() {
     yield takeEvery('FETCH_MAINTENANCE', fetchMaintenance);
-
+    yield takeEvery('POST_MAINTENANCE', postMaintenance);
 }
 
 export default maintenanceSaga;
