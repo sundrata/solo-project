@@ -8,9 +8,6 @@ import UserInfo from '../UserInfo/UserInfo';
 // and then instead of `props.user.username` you could use `user.username`
 const UserPage = ({ user }) => (
   <div>
-    <div>
-      <UserInfo />
-    </div>
     <div className="parkButtonsDiv">
       <Link to="/park1">
         <button className="parkButtons">Park #1</button><br></br>

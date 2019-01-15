@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import ParkOne from '../ParkOne/ParkOne';
 import UserInfo from '../UserInfo/UserInfo';
+import { Link } from 'react-router-dom';
 
 class ParkOneList extends Component {
     
@@ -14,7 +15,7 @@ class ParkOneList extends Component {
     }//end getMaint
     
     handleSubmit = () => {
-        this.props.dispatch({type: 'POST_MAINTENANCE', payload: this.state})
+        alert('Succesfuly submitted log. Returning to home page.')
     }
 
     render() {
@@ -31,10 +32,13 @@ class ParkOneList extends Component {
                         feature_image={each.image}
                         // who_maintained={each.who_maintained}
                         // was_maintained={each.was_maintained}
-                        // timestamp={each.timestamp}
+                        timestamp={each.timestamp}
                         park={each.park} /> )
                 })}
+                <Link to ="/home" >
                 <button className="submit" onClick={this.handleSubmit}>Submit</button>
+                </Link>
+                
             </div>
         )
     }
