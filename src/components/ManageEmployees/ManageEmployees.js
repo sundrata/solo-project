@@ -104,7 +104,7 @@ class ManageEmployees extends Component {
                             <Button onClick={this.handleClose} color="primary">
                                 Cancel
                             </Button>
-                            <Button onClick={this.handleClick} color="primary">
+                            <Button onClick={() => this.updatePerson()} color="primary">
                                 Submit
                             </Button>
                         </DialogActions>
@@ -120,8 +120,7 @@ class ManageEmployees extends Component {
                         </tr>
                     </thead>
                     <tbody>
-                        {this.props.reduxStore.personReducer.map((person) => {
-                            if(person.is_admin){
+                        {this.props.reduxStore.personReducer.map((person) => {                           
                                 return (
                                 //cool way to render booleans
                                 <tr key={person.id}>                                
@@ -167,7 +166,7 @@ class ManageEmployees extends Component {
                                                 <Button onClick={this.handleClose} color="primary">
                                                     Cancel
                             </Button>
-                                                <Button onClick={() => this.updatePerson(person)} color="primary">
+                                                <Button onClick={() => this.handleClick()} color="primary">
                                                     Submit
                             </Button>
                                             </DialogActions>
@@ -178,7 +177,6 @@ class ManageEmployees extends Component {
                                     <td><button onClick={() => this.deletePerson(person)}>Delete</button></td>
                                 </tr>
                             )
-                                }
                         })}
                     </tbody>
                 </table>

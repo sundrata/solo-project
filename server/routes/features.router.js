@@ -6,7 +6,9 @@ const router = express.Router();
  * GET route template
  */
 router.get('/', (req, res) => {
-    let queryText = (`SELECT * FROM "features";`);
+    let queryText = (`SELECT features.*,
+    parks.name AS park_name
+    FROM "features" left JOIN "parks" ON "features".park = "parks".id;`);
     pool.query(queryText).then((result) => {
         console.log('result.rows:', result.rows);
         res.send(result.rows);
@@ -22,4 +24,17 @@ router.get('/', (req, res) => {
 router.post('/', (req, res) => {
 });
 
+// PUT ROUTE
+router.put('/:id', (req, res) => {
+    let id = req.params.id;
+    let queryText = (`UPDATE "features" SET "last_maintained_by" = $2` +
+    `WHERE "id" = $1;`);
+    pool.query(queryText, [id, req.user.username]).then((result) => {
+        console.log('result.rows:', result.rows);
+        res.send(result.rows);
+    }).catch((error) => {
+        console.log(error);
+        res.sendStatus(500);
+    })
+});
 module.exports = router;

@@ -31,6 +31,7 @@ class ParkOne extends Component {
         this.handleID();
         this.handleWho();
         this.props.dispatch({type: 'POST_MAINTENANCE', payload: this.state})
+        this.props.dispatch({ type: 'UPDATE_FEATURES', payload: this.props.feature_id })
     }
     
 

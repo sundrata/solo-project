@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { put, takeEvery } from 'redux-saga/effects';
+import { put, call, takeEvery } from 'redux-saga/effects';
 
 // worker Saga: will be fired on "FETCH_FEATURES" actions
 function* fetchFeatures() {
@@ -25,9 +25,18 @@ function* fetchFeatures() {
     }
 }
 
+function* updateFeatures(action) {
+    try{
+        yield call(axios.put, `/api/features/${action.payload}`);
+        yield put({type: 'FETCH_FEATURES'});
+    } catch(error){
+        console.log(error);
+    }
+}
+
 function* featuresSaga() {
     yield takeEvery('FETCH_FEATURES', fetchFeatures);
-
+    yield takeEvery('UPDATE_FEATURES', updateFeatures)
 }
 
 export default featuresSaga;
