@@ -8,7 +8,6 @@ class Archives extends Component {
     render() {
         return (
             <div>
-            <UserInfo />
                 <table className="archivesTable">
                     <thead>
                         <tr>

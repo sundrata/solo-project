@@ -23,16 +23,16 @@ class ParkOneList extends Component {
             <div>
                 {/* Render each item from the shelf reducer */}
                 <h1 className="parkTitle">Park One</h1>
-                {this.props.reduxStore.maintenanceReducer.map((each) => {
+                {this.props.reduxStore.featuresReducer.map((each) => {
                     return ( <ParkOne
                         key={each.id}
                         feature_id={each.id} //this is NEEDED for delete
-                        feature_name={each.feature_name}
-                        feature_image={each.feature_image}
-                        who_maintained={each.who_maintained}
-                        was_maintained={each.was_maintained}
-                        timestamp={each.timestamp}
-                        in_park={each.in_park} /> )
+                        feature_name={each.name}
+                        feature_image={each.image}
+                        // who_maintained={each.who_maintained}
+                        // was_maintained={each.was_maintained}
+                        // timestamp={each.timestamp}
+                        park={each.park} /> )
                 })}
                 <button className="submit" onClick={this.handleSubmit}>Submit</button>
             </div>

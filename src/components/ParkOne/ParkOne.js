@@ -52,7 +52,7 @@ class ParkOne extends Component {
     }
 
     render() {
-        if (this.props.in_park === 1) {
+        if (this.props.park === 1) {
             return (
                 <div className="parkItem">
                     <hr></hr>
