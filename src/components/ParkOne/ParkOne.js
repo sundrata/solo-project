@@ -6,13 +6,12 @@ class ParkOne extends Component {
     state = {
      feature_id: 0,
      who_maintained: '',
-     was_maintained: true,
-     in_park: 1,  
+     was_maintained: true, 
     }
 
     componentDidMount(){
         this.handleID();
-        this.handlePark();
+        this.handleWho();
     }
 
     handleID = (event) => {
@@ -27,27 +26,10 @@ class ParkOne extends Component {
         })
     }
 
-    handleWas = (event) => {
-        this.setState({
-            was_maintained: event.target.value
-        })
-    }
-
-    handlePark = () => {
-        this.setState({
-            in_park : this.state.in_park
-        })
-    }
-    handleTime = (event) => {
-        this.setState({
-            timestamp: event.target.value
-        })
-    }
 
     handleSubmit = () => {
         this.handleID();
         this.handleWho();
-        this.handlePark();
         this.props.dispatch({type: 'POST_MAINTENANCE', payload: this.state})
     }
     
@@ -75,7 +57,7 @@ class ParkOne extends Component {
 }
 
 // Instead of taking everything from state, we just want the shelf info.
-const mapStateToProps = reduxStore => ({
+const mapStateToProps = (reduxStore) => ({
     reduxStore
 });
 
