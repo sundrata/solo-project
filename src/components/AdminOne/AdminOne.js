@@ -16,7 +16,7 @@ class AdminOne extends Component {
         this.setState({
             park: event.target.value
         })
-        console.log('in park:',this.state.park)
+        console.log('in park:', event.target.value)
     }
 
     handleFeature =  (event) => {
@@ -29,7 +29,7 @@ class AdminOne extends Component {
     updateFeature = () => {
         // console.log('f id:', feature.id);
         
-        this.props.dispatch({ type: 'UPDATE_PARKS', payload: this.state.feature })
+        this.props.dispatch({ type: 'UPDATE_PARKS', payload: this.state })
     }
 
     render() {
@@ -38,7 +38,7 @@ class AdminOne extends Component {
                 {/* list all features in a dropdown and select which feature to add */}
                 <select onChange={this.handleFeature}>
                 {this.props.reduxStore.featuresReducer.map((feature) => {
-                    return ( <option  value={feature.id}>
+                    return ( <option value={feature.id}>
                         {/* {feature.id} */}
                         {feature.name}
                        </option> )
@@ -46,9 +46,9 @@ class AdminOne extends Component {
                 </select>
 
                 {/* list all parks in a dropdown to select which park to put feature into */}
-                <select onChange={this.handlePark} value={this.state.park}>
+                <select onChange={this.handlePark} >
                 {this.props.reduxStore.parksReducer.map((park) => {
-                    return ( <option>
+                    return ( <option value={park.id}>
                         {park.name}
                        </option> )
                 })}

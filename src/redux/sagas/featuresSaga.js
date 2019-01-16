@@ -36,7 +36,7 @@ function* updateFeatures(action) {
 
 function* updateParks(action){
     try{
-        yield call(axios.put, `/api/features/update/${action.payload}`);
+        yield call(axios.put, `/api/features/update/${action.payload.feature}`, action.payload);
         yield put({type: 'FETCH_FEATURES'});
     } catch(error){
         console.log(error);
