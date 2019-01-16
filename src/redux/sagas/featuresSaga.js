@@ -34,9 +34,19 @@ function* updateFeatures(action) {
     }
 }
 
+function* updateParks(action){
+    try{
+        yield call(axios.put, `/api/features/update/${action.payload}`);
+        yield put({type: 'FETCH_FEATURES'});
+    } catch(error){
+        console.log(error);
+    }
+}
+
 function* featuresSaga() {
     yield takeEvery('FETCH_FEATURES', fetchFeatures);
-    yield takeEvery('UPDATE_FEATURES', updateFeatures)
+    yield takeEvery('UPDATE_FEATURES', updateFeatures);
+    yield takeEvery('UPDATE_PARKS', updateParks)
 }
 
 export default featuresSaga;

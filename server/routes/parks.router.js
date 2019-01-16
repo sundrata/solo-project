@@ -22,4 +22,18 @@ router.get('/', (req, res) => {
 router.post('/', (req, res) => {
 });
 
+// PUT
+router.put('/:id', (req, res) => {
+    let id = req.params.id;
+    let park = req.body
+    let queryText = (`UPDATE "features" SET "park" = $2` +
+    `WHERE "id" = $1;`);
+    pool.query(queryText, [id, park.park]).then((result) => {
+        console.log('result.rows:', result.rows);
+        res.send(result.rows);
+    }).catch((error) => {
+        console.log(error);
+        res.sendStatus(500);
+    })
+});
 module.exports = router;

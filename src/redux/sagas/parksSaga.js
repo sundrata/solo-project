@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { put, takeEvery } from 'redux-saga/effects';
+import { put, call, takeEvery } from 'redux-saga/effects';
 
 // worker Saga: will be fired on "FETCH_PARKS" actions
 function* fetchParks() {
@@ -27,7 +27,7 @@ function* fetchParks() {
 
 function* parksSaga() {
     yield takeEvery('FETCH_PARKS', fetchParks);
-
+  
 }
 
 export default parksSaga;

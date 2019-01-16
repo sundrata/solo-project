@@ -8,9 +8,9 @@ class AdminOne extends Component {
         park: 1,
     }
 
-    componentDidMount() {
-        // this.handlePark();
-    }
+    // componentDidMount() {
+    //     this.handleFeature();
+    // }
 
     handlePark = (event) => {
         this.setState({
@@ -23,20 +23,23 @@ class AdminOne extends Component {
         this.setState({
             feature: event.target.value
         })
-        console.log('feature:', this.state.feature)
+        console.log('feature:', event.target.value)
     }
 
-    updateFeature = (feature) => {
-        this.props.dispatch({ type: 'UPDATE_FEATURE', payload: feature.id })
+    updateFeature = () => {
+        // console.log('f id:', feature.id);
+        
+        this.props.dispatch({ type: 'UPDATE_PARKS', payload: this.state.feature })
     }
 
     render() {
         return (
             <div>
                 {/* list all features in a dropdown and select which feature to add */}
-                <select onChange={this.handleFeature} value={this.state.feature}>
+                <select onChange={this.handleFeature}>
                 {this.props.reduxStore.featuresReducer.map((feature) => {
-                    return ( <option>
+                    return ( <option  value={feature.id}>
+                        {/* {feature.id} */}
                         {feature.name}
                        </option> )
                 })}
@@ -51,7 +54,7 @@ class AdminOne extends Component {
                 })}
                 </select>
 
-                <button>Add To Park</button>
+                <button onClick={ this.updateFeature }>Add To Park</button>
                 <hr></hr>
                 <ParkOneList />
             </div>
