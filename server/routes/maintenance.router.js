@@ -9,7 +9,8 @@ router.get('/', (req, res) => {
     let queryText = (`SELECT maintenance.*,
     features.name AS feature_name,
     features.image AS feature_image
-    FROM "maintenance" JOIN "features" ON "maintenance".feature_id = "features".id;`);
+    FROM "maintenance" JOIN "features" ON "maintenance".feature_id = "features".id
+    ORDER by "id" DESC;`);
     pool.query(queryText).then((result) => {
         console.log('result.rows:', result.rows);
         res.send(result.rows);

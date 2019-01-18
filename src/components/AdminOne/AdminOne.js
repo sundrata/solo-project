@@ -31,13 +31,12 @@ class AdminOne extends Component {
             <div>
                 {/* list all features in a dropdown and select which feature to add */}
                 <select onChange={this.handleFeature}>
-                    {/* <option value="" disabled defaultValue>Select Feature</option> */}
-                    {this.props.reduxStore.featuresReducer.map((feature) => {
-                        if (`${feature.park}` == 1) {
-                            return (
-                                <option value={feature.id}>{feature.name}</option>)
-                        }
-                    })}
+                {this.props.reduxStore.featuresReducer.map((feature) => {
+                    if(feature.park === 1){
+                    return ( <option value={feature.id}>
+                        {feature.name}
+                       </option> )
+                }})}
                 </select>
                 {/* list all parks in a dropdown to select which park to put feature into */}
                 <select onChange={this.handlePark} >
@@ -49,7 +48,9 @@ class AdminOne extends Component {
                 </select>
                 <button onClick={this.updateFeature}>Add To Park</button>
                 <hr></hr>
+                <div className="adminViewParks">
                 <ParkOneList />
+                </div>
             </div>
         );
     }

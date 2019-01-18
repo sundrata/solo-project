@@ -44,7 +44,7 @@ class ParkOne extends Component {
                     <div className="checker">
                         <input className="featureItemMaintained" type="checkbox" onChange={this.handleSubmit} value={this.props.was_maintained} />
                         <span>Maintained?</span>
-                        <p className="lastMaintained">Last Maintained: <span value={this.props.timestamp}>{moment(this.props.timestamp).format('MMMM Do YYYY, h:mm:ss a')}</span> <span>({moment(this.props.timestamp).startOf('day').fromNow()})</span></p>
+                        <p className="lastMaintained">Last Maintained: <span value={this.props.timestamp}>{moment(this.props.timestamp).format('MMMM Do YYYY, h:mm:ss a')}</span> <span>({moment(this.props.timestamp).startOf('day').fromNow()})</span><span> By: Carson</span></p>
                     </div>
                     <hr></hr>
                 </div>

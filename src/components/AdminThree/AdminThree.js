@@ -50,7 +50,9 @@ class AdminThree extends Component {
                 </select>
                 <button onClick={this.updateFeature}>Add To Park</button>
                 <hr></hr>
+                <div className="adminViewParks">
                 <ParkThreeList />
+                </div>
             </div>
         );
     }

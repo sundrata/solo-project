@@ -29,6 +29,11 @@ body {
     text-align: center;    
 }
 
+.adminViewParks{
+    text-align: center;
+    margin: 20px 350px;
+    border: 2px black solid;
+}
 .alert {
     background-color: #ff4545;
     margin: 50px;
@@ -127,6 +132,7 @@ input[type="checkbox"]{
 .parkButtons{
     background-color: #8497f6;
     border-radius: 4px;
+    font-size: 24px;
     color: #f8f8f8;
     min-height: 120px;
     min-width: 240px;
