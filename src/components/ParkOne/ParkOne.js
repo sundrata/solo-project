@@ -4,36 +4,35 @@ import moment from 'moment';
 
 class ParkOne extends Component {
     state = {
-     feature_id: 0,
-     who_maintained: '',
-     was_maintained: true, 
+        feature_id: 0,
+        who_maintained: '',
+        was_maintained: true,
     }
 
-    componentDidMount(){
+    componentDidMount() {
         this.handleID();
         this.handleWho();
     }
 
-    handleID = (event) => {
+    handleID = () => {
         this.setState({
             feature_id: this.props.feature_id
         })
     }
 
-    handleWho = (event) => {
+    handleWho = () => {
         this.setState({
             who_maintained: this.props.username
         })
     }
-
-
+// post to database onChange of checkbox
+// set last_maintained_by
     handleSubmit = () => {
         this.handleID();
         this.handleWho();
-        this.props.dispatch({type: 'POST_MAINTENANCE', payload: this.state})
+        this.props.dispatch({ type: 'POST_MAINTENANCE', payload: this.state })
         this.props.dispatch({ type: 'UPDATE_FEATURES', payload: this.props.feature_id })
     }
-    
 
     render() {
         if (this.props.park === 1) {
@@ -43,11 +42,10 @@ class ParkOne extends Component {
                     <p value={this.props.feature_name} className="featureName">{this.props.feature_name}</p>
                     <img alt="feature" className="featureImg" src={this.props.feature_image} />
                     <div className="checker">
-                        <input className="featureItemMaintained"type="checkbox" onChange={this.handleSubmit} value={this.props.was_maintained}/>
+                        <input className="featureItemMaintained" type="checkbox" onChange={this.handleSubmit} value={this.props.was_maintained} />
                         <span>Maintained?</span>
                         <p className="lastMaintained">Last Maintained: <span value={this.props.timestamp}>{moment(this.props.timestamp).format('MMMM Do YYYY, h:mm:ss a')}</span> <span>({moment(this.props.timestamp).startOf('day').fromNow()})</span></p>
-                    </div>       
-                    {/* <button onClick={this.handleSubmit}>Submit</button> */}
+                    </div>
                     <hr></hr>
                 </div>
             )

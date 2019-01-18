@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import ParkOneList from '../ParkOneList/ParkOneList';
+import ParkTwoList from '../ParkTwoList/ParkTwoList';
 
-class AdminOne extends Component {
+class AdminTwo extends Component {
     state = {
         feature: '',
         park: 0,
@@ -33,7 +33,7 @@ class AdminOne extends Component {
                 <select onChange={this.handleFeature}>
                     {/* <option value="" disabled defaultValue>Select Feature</option> */}
                     {this.props.reduxStore.featuresReducer.map((feature) => {
-                        if (`${feature.park}` == 1) {
+                        if (`${feature.park}` == 2) {
                             return (
                                 <option value={feature.id}>{feature.name}</option>)
                         }
@@ -47,9 +47,9 @@ class AdminOne extends Component {
                        </option> )
                 })}
                 </select>
-                <button onClick={this.updateFeature}>Add To Park</button>
+                <button onClick={ this.updateFeature }>Add To Park</button>
                 <hr></hr>
-                <ParkOneList />
+                <ParkTwoList />
             </div>
         );
     }
@@ -59,4 +59,4 @@ const mapStateToProps = reduxStore => ({
     reduxStore
 });
 
-export default connect(mapStateToProps)(AdminOne);
+export default connect(mapStateToProps)(AdminTwo);

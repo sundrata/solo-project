@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import ParkOneList from '../ParkOneList/ParkOneList';
+import ParkThreeList from '../ParkThreeList/ParkThreeList';
 
-class AdminOne extends Component {
+class AdminThree extends Component {
     state = {
         feature: '',
         park: 0,
@@ -15,7 +15,7 @@ class AdminOne extends Component {
         console.log('in park:', event.target.value)
     }
     //select feature to move
-    handleFeature =  (event) => {
+    handleFeature = (event) => {
         this.setState({
             feature: event.target.value
         })
@@ -33,7 +33,7 @@ class AdminOne extends Component {
                 <select onChange={this.handleFeature}>
                     {/* <option value="" disabled defaultValue>Select Feature</option> */}
                     {this.props.reduxStore.featuresReducer.map((feature) => {
-                        if (`${feature.park}` == 1) {
+                        if (`${feature.park}` == 3) {
                             return (
                                 <option value={feature.id}>{feature.name}</option>)
                         }
@@ -41,15 +41,16 @@ class AdminOne extends Component {
                 </select>
                 {/* list all parks in a dropdown to select which park to put feature into */}
                 <select onChange={this.handlePark} >
-                {this.props.reduxStore.parksReducer.map((park) => {
-                    return ( <option value={park.id}>
-                        {park.name}
-                       </option> )
-                })}
+                    <option value="" disabled defaultValue>Select Park</option>
+                    {this.props.reduxStore.parksReducer.map((park) => {
+                        return (<option value={park.id}>
+                            {park.name}
+                        </option>)
+                    })}
                 </select>
                 <button onClick={this.updateFeature}>Add To Park</button>
                 <hr></hr>
-                <ParkOneList />
+                <ParkThreeList />
             </div>
         );
     }
@@ -59,4 +60,4 @@ const mapStateToProps = reduxStore => ({
     reduxStore
 });
 
-export default connect(mapStateToProps)(AdminOne);
+export default connect(mapStateToProps)(AdminThree);

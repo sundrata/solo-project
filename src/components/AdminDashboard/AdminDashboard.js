@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import UserInfo from '../UserInfo/UserInfo';
 
 class AdminDashboard extends Component {
     render() {
@@ -18,13 +17,13 @@ class AdminDashboard extends Component {
                 </div>
                 <div className="adminNavBottom">
                     <Link to="/adminOne">
-                        <button className="adminDashButtons">Park #1</button>
+                        <button className="adminDashButtons">The Knob</button>
                     </Link>
-                    <Link to="/park2">
-                        <button className="adminDashButtons">Park #2</button>
+                    <Link to="/adminTwo">
+                        <button className="adminDashButtons">Red Tail Ridge</button>
                     </Link>
-                    <Link to="/park3">
-                        <button className="adminDashButtons">Park #3</button>
+                    <Link to="/adminThree">
+                        <button className="adminDashButtons">Little Jibber</button>
                     </Link>
                 </div>
             </div>

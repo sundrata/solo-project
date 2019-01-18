@@ -41,7 +41,7 @@ function* deletePerson(action) {
 
 function* updatePerson(action) {
     try{
-        yield call(axios.put, `/api/person/${action.payload}`);
+        yield call(axios.put, `/api/person/${action.payload.username}`, action.payload);
         yield put({type: 'FETCH_PERSON'});
     } catch(error){
         console.log(error);

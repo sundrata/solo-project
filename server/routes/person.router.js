@@ -49,12 +49,11 @@ router.delete('/:id', (req, res) => {
 })
 
 // PUT
-router.put('/:id', function(req, res){
+router.put('/:username', function(req, res){
     let id = req.params.id;
     const person = req.body; // This the data we sent
-    const query = `UPDATE "person" SET ("id", "username", "password", "is_admin")
-    VALUES ($1, $2, $3, $4) WHERE "id" = $1;`
-    pool.query(query, [person.id, person.username, person.password, person.is_admin])
+    const query = `UPDATE "person" SET is_admin = $2 WHERE id = $1;`
+    pool.query(query, [id, person.is_admin])
     .then((result)=>{
         console.log(result);
         res.sendStatus(201);

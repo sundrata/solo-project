@@ -46,7 +46,7 @@ class ManageEmployees extends Component {
     }
 
     updatePerson = (person) => {
-        this.props.dispatch({ type: 'UPDATE_PERSON', payload: person.id })
+        this.props.dispatch({ type: 'UPDATE_PERSON', payload: this.state, person })
     }
 
     //Material UI dialog handlers
@@ -61,6 +61,7 @@ class ManageEmployees extends Component {
         console.log('person', this.props.reduxStore.personReducer);
         return (
             <div>
+                {/* div for add employee dialog */}
                 <div className="addEmpDialog">
                     <Button variant="outlined" color="primary" onClick={this.handleClickOpen}>
                         Add New Employee
@@ -75,6 +76,7 @@ class ManageEmployees extends Component {
                             <DialogContentText>
                                 Add a new employee
                             </DialogContentText>
+                            {/* Username input for new employee */}
                             <TextField
                                 autoFocus
                                 margin="dense"
@@ -85,6 +87,7 @@ class ManageEmployees extends Component {
                                 value={this.state.username}
                                 fullWidth
                             />
+                            {/* password input for new employee */}
                             <TextField
                                 autoFocus
                                 margin="dense"
@@ -95,6 +98,7 @@ class ManageEmployees extends Component {
                                 value={this.state.password}
                                 fullWidth
                             />
+                            {/* drop down for title */}
                             <select id="title" onChange={this.handleTitle} value={this.state.is_admin}>
                                 <option value="false">Employee</option>
                                 <option value="true">Admin</option>
@@ -104,13 +108,14 @@ class ManageEmployees extends Component {
                             <Button onClick={this.handleClose} color="primary">
                                 Cancel
                             </Button>
-                            <Button onClick={() => this.updatePerson()} color="primary">
+                            <Button onClick={() => this.handleClick()} color="primary">
                                 Submit
                             </Button>
                         </DialogActions>
                     </Dialog>
                     <hr width="35%"></hr>
                 </div>
+                {/* table displaying all users */}
                 <table className="archivesTable">
                     <thead>
                         <tr>
@@ -127,15 +132,15 @@ class ManageEmployees extends Component {
                                     <td>{person.username}</td>
                                     <td>{person.is_admin ? 'admin' : 'employee'}</td>
                                     <td><div className="addEmpDialog">
-                                        <Button id={person.id} variant="outlined" color="primary" onClick={this.handleClickOpen}>
+                                        <Button id={person.id} variant="outlined" color="primary" >
                                             Edit                        
                                         </Button>
-                                        <Dialog
+                                        {/* <Dialog
                                             open={this.state.open}
                                             onClose={this.handleClose}
-                                            aria-labelledby="form-dialog-title"
+                                            aria-labelledby="form-dialog-title2"
                                         >
-                                            <DialogTitle id="form-dialog-title">Edit Employee</DialogTitle>
+                                            <DialogTitle id="form-dialog-title2">Edit Employee</DialogTitle>
                                             <DialogContent>
                                                 <TextField
                                                     autoFocus
@@ -157,8 +162,8 @@ class ManageEmployees extends Component {
                                                     value={this.state.password}
                                                     fullWidth
                                                 />
-                                                <select id="title" onChange={this.handleTitle} value={this.state.is_admin}>
-                                                    <option value="false">Employee</option>
+                                                <select id="title2" onChange={this.handleTitle} >
+                                                    <option value={this.state.is_admin}>Employee</option>
                                                     <option value="true">Admin</option>
                                                 </select>
                                             </DialogContent>
@@ -166,14 +171,13 @@ class ManageEmployees extends Component {
                                                 <Button onClick={this.handleClose} color="primary">
                                                     Cancel
                             </Button>
-                                                <Button onClick={() => this.handleClick()} color="primary">
+                                                <Button onClick={() => this.updatePerson(person)} color="primary">
                                                     Submit
                             </Button>
                                             </DialogActions>
-                                        </Dialog>
+                                        </Dialog> */}
                                         <hr width="35%"></hr>
-                                    </div></td>
-                                    
+                                    </div></td>                                  
                                     <td><button onClick={() => this.deletePerson(person)}>Delete</button></td>
                                 </tr>
                             )

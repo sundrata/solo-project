@@ -1,20 +1,11 @@
 import React, { Component } from 'react';
-import {
-  HashRouter as Router,
-  Route,
-  Redirect,
-  Switch,
-} from 'react-router-dom';
-
+import { HashRouter as Router, Route, Redirect, Switch} from 'react-router-dom';
 import { connect } from 'react-redux';
-
 import Nav from '../Nav/Nav';
 import Footer from '../Footer/Footer';
-
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 import AdminRoute from '../AdminRoute/AdminRoute';
 import Split from '../Split/Split';
-
 import AboutPage from '../AboutPage/AboutPage';
 import UserPage from '../UserPage/UserPage';
 import InfoPage from '../InfoPage/InfoPage';
@@ -25,8 +16,9 @@ import ParkTwoList from '../ParkTwoList/ParkTwoList';
 import ParkThreeList from '../ParkThreeList/ParkThreeList';
 import ManageEmployees from '../ManageEmployees/ManageEmployees';
 import AdminOne from '../AdminOne/AdminOne';
+import AdminTwo from '../AdminTwo/AdminTwo';
+import AdminThree from '../AdminThree/AdminThree';
 import UserInfo from '../UserInfo/UserInfo';
-
 import './App.css';
 
 class App extends Component {
@@ -35,7 +27,7 @@ class App extends Component {
     this.props.dispatch({ type: 'FETCH_FEATURES' })
     this.props.dispatch({ type: 'FETCH_MAINTENANCE' })
     this.props.dispatch({ type: 'FETCH_PARKS' })
-    this.props.dispatch({ type: 'FETCH_PERSON'})
+    this.props.dispatch({ type: 'FETCH_PERSON' })
   }
 
   render() {
@@ -45,24 +37,20 @@ class App extends Component {
           <Nav />
           <UserInfo />
           <Switch>
-            {/* Visiting localhost:3000 will redirect to localhost:3000/home */}
+            {/* @localhost:3000, route everyone to Split. Split seperates employees from admins and routes to the respective home page */}
             <Redirect exact from="/" to="/split" />
             <ProtectedRoute
-            exact
-            path="/split"
-            component={Split}
+              exact
+              path="/split"
+              component={Split}
             />
-            {/* Visiting localhost:3000/about will show the about page.
-            This is a route anyone can see, no login necessary */}
+            {/* Temporary Admin tab on Nav */}
             <Route
               exact
               path="/about"
               component={AboutPage}
             />
-            {/* For protected routes, the view could show one of several things on the same route.
-            Visiting localhost:3000/home will show the UserPage if the user is logged in.
-            If the user is not logged in, the ProtectedRoute will show the 'Login' or 'Register' page.
-            Even though it seems like they are different pages, the user is always on localhost:3000/home */}
+            {/* UserPage is the employees home page*/}
             <ProtectedRoute
               exact
               path="/home"
@@ -81,12 +69,13 @@ class App extends Component {
               path="/park1"
               component={ParkOneList}
             />
-            {/* test */}
+            {/* route to park 2, only logged in users can access */}
             <ProtectedRoute
               exact
               path="/park2"
               component={ParkTwoList}
             />
+            {/* route to park 3, only logged in users can access */}            
             <ProtectedRoute
               exact
               path="/park3"
@@ -110,11 +99,24 @@ class App extends Component {
               path="/employees"
               component={ManageEmployees}
             />
-            <AdminRoute 
+            {/* admin edit and view park 1 */}
+            <AdminRoute
               exact
               path="/adminOne"
               component={AdminOne}
-              />
+            />
+            {/* admin edit and view park 2 */}            
+            <AdminRoute
+              exact
+              path="/adminTwo"
+              component={AdminTwo}
+            />
+            {/* admin edit and view park 3 */}
+            <AdminRoute
+              exact
+              path="/adminThree"
+              component={AdminThree}
+            />
             {/* If none of the other routes matched, we will show a 404. */}
             <Route render={() => <h1>404</h1>} />
           </Switch>

@@ -8,7 +8,7 @@ const router = express.Router();
 router.get('/', (req, res) => {
     let queryText = (`SELECT features.*,
     parks.name AS park_name
-    FROM "features" left JOIN "parks" ON "features".park = "parks".id;`);
+    FROM "features" left JOIN "parks" ON "features".park = "parks".id ORDER BY id;`);
     pool.query(queryText).then((result) => {
         console.log('result.rows:', result.rows);
         res.send(result.rows);

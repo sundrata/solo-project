@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import UserInfo from '../UserInfo/UserInfo'
 // This is one of our simplest components
 // It doesn't have local state, so it can be a function component.
 // It doesn't dispatch any redux actions or display any part of redux state
@@ -9,7 +8,6 @@ import UserInfo from '../UserInfo/UserInfo'
 const InvalidClearance = () => (
   <div>
     <div>
-        <UserInfo />
       <p>
 You do not have authorization to access this page!
       </p>
