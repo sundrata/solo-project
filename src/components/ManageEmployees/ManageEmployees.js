@@ -9,6 +9,13 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
+import { withStyles } from '@material-ui/core/styles';
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
+import Paper from '@material-ui/core/Paper';
 
 class ManageEmployees extends Component {
     state = {
@@ -121,7 +128,8 @@ class ManageEmployees extends Component {
                         <tr>
                             <th>Employee </th>
                             <th>Title</th>
-                            <th></th>
+                            <th>Edit</th>
+                            <th>Delete</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -130,9 +138,9 @@ class ManageEmployees extends Component {
                                 //cool way to render booleans
                                 <tr key={person.id}>                                
                                     <td>{person.username}</td>
-                                    <td>{person.is_admin ? 'admin' : 'employee'}</td>
+                                    <td>{person.is_admin ? 'Admin' : 'Employee'}</td>
                                     <td><div className="addEmpDialog">
-                                        <Button id={person.id} variant="outlined" color="primary" >
+                                        <Button variant="outlined" color="primary" >
                                             Edit                        
                                         </Button>
                                         {/* <Dialog
@@ -176,9 +184,9 @@ class ManageEmployees extends Component {
                             </Button>
                                             </DialogActions>
                                         </Dialog> */}
-                                        <hr width="35%"></hr>
+                                        
                                     </div></td>                                  
-                                    <td><button onClick={() => this.deletePerson(person)}>Delete</button></td>
+                                    <td><Button variant="outlined" onClick={() => this.deletePerson(person)}>Delete</Button></td>
                                 </tr>
                             )
                         })}

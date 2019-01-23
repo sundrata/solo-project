@@ -38,7 +38,7 @@ class ParkOne extends Component {
         if (this.props.park === 1) {
             return (
                 <div className="parkItem">
-                    <hr></hr>
+                    
                     <p value={this.props.feature_name} className="featureName">{this.props.feature_name}</p>
                     <img alt="feature" className="featureImg" src={this.props.feature_image} />
                     <div className="checker">
@@ -46,7 +46,7 @@ class ParkOne extends Component {
                         <span>Maintained?</span>
                         <p className="lastMaintained">Last Maintained: <span value={this.props.timestamp}>{moment(this.props.timestamp).format('MMMM Do YYYY, h:mm:ss a')}</span> <span>({moment(this.props.timestamp).startOf('day').fromNow()})</span><span> By: Carson</span></p>
                     </div>
-                    <hr></hr>
+                  
                 </div>
             )
         } else {

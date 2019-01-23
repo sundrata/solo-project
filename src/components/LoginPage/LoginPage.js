@@ -40,12 +40,12 @@ class LoginPage extends Component {
             {this.props.errors.loginMessage}
           </h2>
         )}
-        <form onSubmit={this.login}>
+        <form className="loginForm" onSubmit={this.login}>
           <h1>Login</h1>
           <div>
             <label htmlFor="username">
               Username:
-              <input
+              <br></br><input
                 type="text"
                 name="username"
                 value={this.state.username}
@@ -56,7 +56,7 @@ class LoginPage extends Component {
           <div>
             <label htmlFor="password">
               Password:
-              <input
+              <br></br><input
                 type="password"
                 name="password"
                 value={this.state.password}

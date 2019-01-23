@@ -21,8 +21,9 @@ class Archives extends Component {
                             return (
                                 <tr key={each.id}>
                                     <td>{each.feature_name}</td>
-                                    <td>{each.who_maintained}</td>
+                                    <td className="middleRow">{each.who_maintained}</td>
                                     <td>{moment(each.timestamp).format("MMM Do, YYYY")}</td>
+                                    <td>{moment(each.when).format("hh:mm:ss a")}</td>
                                 </tr>
                             )
                         })}

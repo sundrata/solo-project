@@ -49,8 +49,11 @@ class AdminTwo extends Component {
                 </select>
                 <button onClick={ this.updateFeature }>Add To Park</button>
                 <hr></hr>
-                <div className="adminViewParks">
+                <div className="adminViewContent">
+                {/* <hr className="fakePhoneTop"></hr> */}
                 <ParkTwoList />
+                {/* <hr className="fakePhoneBottom"></hr> */}
+                {/* <span className="dot"></span>  */}
                 </div>
             </div>
         );

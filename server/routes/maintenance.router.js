@@ -25,8 +25,8 @@ router.get('/', (req, res) => {
  */
 router.post('/', (req, res) => {
     const maintenance = req.body;
-    const queryText = `INSERT INTO "maintenance" ("feature_id", "was_maintained", "timestamp") VALUES ($1, $2, current_timestamp);`;
-    pool.query(queryText, [maintenance.feature_id, maintenance.was_maintained])
+    const queryText = `INSERT INTO "maintenance" ("feature_id", "was_maintained", "who_maintained", "timestamp", "when") VALUES ($1, $2, $3, current_timestamp, current_timestamp);`;
+    pool.query(queryText, [maintenance.feature_id, maintenance.was_maintained, req.user.username])
     .then((result) => {
         console.log('result.rows:', result.rows);
         res.send(result.rows);

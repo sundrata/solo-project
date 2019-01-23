@@ -12,16 +12,45 @@ body {
     background-color: #8497f6;
     color: white;
     font-size: 20px;
-    height: 80px;
-    width: 160px;
+    height: 100px;
+    width: 180px;
     outline:0;
     cursor: pointer;
     padding: 5px 10px;
     margin: 5px 10px;
 }
 
+th, td {
+        border-bottom: 1px solid #ddd;
+       hover : #f5f5f5;
+}
+
 .adminNavLeft{
     margin: 10px;
+}
+
+.dot {
+    position: absolute;
+    bottom: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+  }
+
+.middleRow{
+    text-align: center;
+}
+
+.fakePhoneTop{
+    margin: 50px 0 10px 0;
+    border-color: black;
+}
+
+.fakePhoneBottom{
+    margin: 10px 0 50px 0;
+    border-color: black;
 }
 
 .adminNavBottom{
@@ -29,10 +58,21 @@ body {
     text-align: center;    
 }
 
+.adminViewContent{
+    margin: 20px auto;
+    width: 290px;
+}
 .adminViewParks{
     text-align: center;
-    margin: 20px 350px;
-    border: 2px black solid;
+    /* border-radius: 20px; */
+    margin: 20px auto ;
+    max-width: 290px;
+    height: 580px;
+    /* min-height: 500px ; */
+    position: relative;
+    /* border: 2px black solid; */
+    background-image: url("/images/phone2.png");
+    background-size: contain;
 }
 .alert {
     background-color: #ff4545;
@@ -100,6 +140,12 @@ input[type="checkbox"]{
   margin: 0px 15px;
 }
 
+.loginForm{
+    text-align: center;
+    align-content: center;
+    color: rgb(37, 37, 37);
+
+}
 .submit{
     background-color: #7543a9;
   border-radius: 4px;
@@ -110,6 +156,7 @@ input[type="checkbox"]{
   cursor: pointer;
   margin: 0px auto;
   display: flex;
+  align-content: center;
 }
 
 
@@ -147,6 +194,7 @@ input[type="checkbox"]{
 .parkItem{
     background-color: #c6e7fa;
     margin: 10px 20px;
+    border: 1px #57b3e9 solid;
 }
 .parkTitle{
     text-align: center;
