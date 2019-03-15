@@ -1,5 +1,5 @@
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: Verdana, sans-serif;
     margin: 0px;
 }
 
@@ -21,8 +21,8 @@ body {
 }
 
 th, td {
-        border-bottom: 1px solid #ddd;
-       hover : #f5f5f5;
+    border-bottom: 1px solid #ddd;
+    hover: #f5f5f5;
 }
 
 .adminNavLeft{

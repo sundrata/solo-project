@@ -46,7 +46,6 @@ class ManageEmployees extends Component {
     handleClick = () => {
         this.props.dispatch({ type: 'POST_PERSON', payload: this.state })
         this.setState({ open: false });
-
     }
     deletePerson = (person) => {
         this.props.dispatch({ type: 'DELETE_PERSON', payload: person.id })
